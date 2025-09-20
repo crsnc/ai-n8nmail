@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI N8N Mail - Contact Form</title>
+    <meta name="description" content="Contact form integrated with N8N workflow for automated processing">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contact Form</h1>
+            <p>Fill out this form and we'll get back to you soon!</p>
+        </header>
+
+        <main>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required 
+                           placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="Enter your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required 
+                           placeholder="Enter the subject">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required rows="6" 
+                              placeholder="Enter your message"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" 
+                           placeholder="Enter your phone number (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company/Organization</label>
+                    <input type="text" id="company" name="company" 
+                           placeholder="Enter your company name (optional)">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loader" style="display: none;">Sending...</span>
+                </button>
+            </form>
+
+            <div id="messageAlert" class="alert" style="display: none;">
+                <div class="alert-content">
+                    <span class="alert-text"></span>
+                    <button class="alert-close" onclick="hideAlert()">&times;</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by AI N8N Mail Integration</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
