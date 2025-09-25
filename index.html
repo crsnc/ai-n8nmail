@@ -1,76 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI N8N Mail - Contact Form</title>
-    <meta name="description" content="Contact form integrated with N8N workflow for automated processing">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misafir Formu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #0073e6;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005bb5;
+    }
+    .success {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Contact Form</h1>
-            <p>Fill out this form and we'll get back to you soon!</p>
-        </header>
 
-        <main>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required 
-                           placeholder="Enter your full name">
-                </div>
+  <div class="form-container">
+    <h2>Misafir Girişi</h2>
+    <form id="guestForm">
+      <input type="text" name="name" placeholder="Adınız" required>
+      <input type="email" name="email" placeholder="E-posta" required>
+      <input type="tel" name="phone" placeholder="Telefon" required>
+      <button type="submit">Gönder</button>
+    </form>
+    <p id="result" class="success"></p>
+  </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required 
-                           placeholder="Enter your email address">
-                </div>
+  <script>
+    const form = document.getElementById("guestForm");
+    const result = document.getElementById("result");
 
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <input type="text" id="subject" name="subject" required 
-                           placeholder="Enter the subject">
-                </div>
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
 
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required rows="6" 
-                              placeholder="Enter your message"></textarea>
-                </div>
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value
+      };
 
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" 
-                           placeholder="Enter your phone number (optional)">
-                </div>
+      try {
+        const response = await fetch("https://your-n8n-domain/webhook/guest-form", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
 
-                <div class="form-group">
-                    <label for="company">Company/Organization</label>
-                    <input type="text" id="company" name="company" 
-                           placeholder="Enter your company name (optional)">
-                </div>
+        if (response.ok) {
+          result.textContent = "Form başarıyla gönderildi ✅";
+          form.reset();
+        } else {
+          result.textContent = "Bir hata oluştu ❌";
+        }
+      } catch (error) {
+        console.error("Fetch hatası:", error);
+        result.textContent = "Sunucuya ulaşılamadı ❌";
+      }
+    });
+  </script>
 
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <span class="btn-text">Send Message</span>
-                    <span class="btn-loader" style="display: none;">Sending...</span>
-                </button>
-            </form>
-
-            <div id="messageAlert" class="alert" style="display: none;">
-                <div class="alert-content">
-                    <span class="alert-text"></span>
-                    <button class="alert-close" onclick="hideAlert()">&times;</button>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <p>Powered by AI N8N Mail Integration</p>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
