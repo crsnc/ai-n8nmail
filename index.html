@@ -1,98 +1,702 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Misafir Formu</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+
+    <link rel="icon" type="image/png" href="images/logoayz.png">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>Konaklayan misafir girişi | Long Beach Resort</title>
+<meta name="theme-color" content="rgba(255,255,255,1)" />
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/lib/getmdl-select.min.css">
+    <link rel="stylesheet" href="css/lib/nv.d3.css">
+   <link rel="stylesheet" href="css/css.php">
+    <!--  endinject -->
+
+	
+	
+	
+	<style type="text/css">
+	@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(material/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(material/MaterialIcons-Regular.woff2) format('woff2'),
+       url(material/MaterialIcons-Regular.woff) format('woff'),
+       url(material/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+	
+.blink_text {
+
+    animation:1s blinker linear infinite;
+    -webkit-animation:1s blinker linear infinite;
+    -moz-animation:1s blinker linear infinite;
+
     }
-    .form-container {
-      background: #fff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #0073e6;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #005bb5;
-    }
-    .success {
-      margin-top: 15px;
-      color: green;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
+
+    @-moz-keyframes blinker {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.5; }
+     100% { opacity: 1.0; }
+     }
+
+    @-webkit-keyframes blinker {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.5; }
+     100% { opacity: 1.0; }
+     }
+
+    @keyframes blinker {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.5; }
+     100% { opacity: 1.0; }
+     }	
+	
+</style>	
+
+	
+	
+<script src="js/jquery.min.js"></script>
+	
 </head>
 <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
 
-  <div class="form-container">
-    <h2>Misafir Girişi</h2>
-    <form id="guestForm">
-      <input type="text" name="name" placeholder="Adınız" required>
-      <input type="email" name="email" placeholder="E-posta" required>
-      <input type="tel" name="phone" placeholder="Telefon" required>
-      <button type="submit">Gönder</button>
-    </form>
-    <p id="result" class="success"></p>
-  </div>
 
-  <script>
-    const form = document.getElementById("guestForm");
-    const result = document.getElementById("result");
 
-    form.addEventListener("submit", async function(e) {
-      e.preventDefault();
+				<button id="more" class="mdl-button mdl-js-button">&nbsp; &nbsp; &nbsp; <img src="images/dilsecimi.gif" loading="lazy" />&nbsp; &nbsp; &nbsp; </button>
+				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-shadow--2dp settings-dropdown"
+                    for="more">
+<a class="mdl-menu__item" href="?lang=tr&change=1"><img src="images/tr.png" loading="lazy" /></i> TÜRKÇE </a><a class="mdl-menu__item" href="?lang=en&change=1"><img src="images/en.png" loading="lazy" /></i> ENGLISH </a><a class="mdl-menu__item" href="?lang=de&change=1"><img src="images/de.png" loading="lazy" /></i> DEUTSCH </a><a class="mdl-menu__item" href="?lang=nl&change=1"><img src="images/nl.png" loading="lazy" /></i> NEDERLANDS </a><a class="mdl-menu__item" href="?lang=ru&change=1"><img src="images/ru.png" loading="lazy" /></i> PУССКИЙ </a><a class="mdl-menu__item" href="?lang=uk&change=1"><img src="images/uk.png" loading="lazy" /></i> УКРАЇНСЬКИЙ </a><a class="mdl-menu__item" href="?lang=ar&change=1"><img src="images/ar.png" loading="lazy" /></i> العربية </a><a class="mdl-menu__item" href="?lang=es&change=1"><img src="images/es.png" loading="lazy" /></i> ESPAÑOL </a><a class="mdl-menu__item" href="?lang=fr&change=1"><img src="images/fr.png" loading="lazy" /></i> FRANÇAIS </a><a class="mdl-menu__item" href="?lang=pt&change=1"><img src="images/pt.png" loading="lazy" /></i> PORTUGUÊS </a><a class="mdl-menu__item" href="?lang=it&change=1"><img src="images/it.png" loading="lazy" /></i> ITALIANO </a><a class="mdl-menu__item" href="?lang=zh&change=1"><img src="images/zh.png" loading="lazy" /></i> 中国 </a><a class="mdl-menu__item" href="?lang=ja&change=1"><img src="images/ja.png" loading="lazy" /></i> 日本の </a>                </ul>			
+						
+				
+            </div>
+        </header>
 
-      const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value
-      };
+		
+		
+	
 
-      try {
-        const response = await fetch("https://your-n8n-domain/webhook/guest-form", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData)
-        });
+        <main class="mdl-layout__content mdl-color--grey-100" style="margin-right:1px">
+            <div class="mdl-card mdl-shadow--2dp employer-form" action="#" >
+				<div class="mdl-card__supporting-text">
+					<center><img src="http://hotspotcrm.com/uploads/longbeach/longbeach2025022714315035116237.png" width="75%" /></center>
+				</div>
 
-        if (response.ok) {
-          result.textContent = "Form başarıyla gönderildi ✅";
-          form.reset();
-        } else {
-          result.textContent = "Bir hata oluştu ❌";
-        }
-      } catch (error) {
-        console.error("Fetch hatası:", error);
-        result.textContent = "Sunucuya ulaşılamadı ❌";
-      }
+	
+                <div class="mdl-card__title">
+					<center>
+						<h2 style="text-shadow: black 1px 1px 1px">Konaklayan misafir girişi</h2>
+						<div class="mdl-card__subtitle"><b>Long Beach Resort</b></div>
+					</center>	
+                </div>
+				
+				
+				
+
+				
+					
+					
+					
+					
+					
+					
+					
+					<div class="mdl-card__supporting-text"><form action="" method="POST" class="form">
+							<div class="form__article">
+								<!--<h3>Personal data</h3>-->
+
+								<div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input value="" autocomplete="off" value=""class="mdl-textfield__input"  required type="number" id="kullaniciadiodano" name="kullaniciadiodano"  />
+										<label class="mdl-textfield__label" for="kullaniciadiodano">Oda Numarası</label>
+									</div>
+								</div>
+								<div class="mdl-grid">
+									<span><font color="#8e91db">Doğum Tarihi</font></span>
+								</div>
+								<div class="mdl-grid">
+
+<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										
+<select name="gun" id="gun" required
+style="width:95px;height:30px;margin:-2px;font-weight:300;font-size:15px;
+border-left-color:rgba(255,255,255,1);
+border-right-color:rgba(255,255,255,1);
+border-top-color:rgba(255,255,255,1);
+border-bottom-color:rgb(178 178 178);-webkit-appearance:none;
+background-color:rgba(255,255,255,1)">
+		<option data-countryCode="01" value="01">01</option>
+		<option data-countryCode="02" value="02">02</option>
+		<option data-countryCode="03" value="03">03</option>
+		<option data-countryCode="04" value="04">04</option>
+		<option data-countryCode="05" value="05">05</option>
+		<option data-countryCode="06" value="06">06</option>
+		<option data-countryCode="07" value="07">07</option>
+		<option data-countryCode="08" value="08">08</option>
+		<option data-countryCode="09" value="09">09</option>
+		<option data-countryCode="10" value="10">10</option>
+		<option data-countryCode="11" value="11">11</option>
+		<option data-countryCode="12" value="12">12</option>
+		<option data-countryCode="13" value="13">13</option>
+		<option data-countryCode="14" value="14">14</option>
+		<option data-countryCode="15" value="15">15</option>
+		<option data-countryCode="16" value="16">16</option>
+		<option data-countryCode="17" value="17">17</option>
+		<option data-countryCode="18" value="18">18</option>
+		<option data-countryCode="19" value="19">19</option>
+		<option data-countryCode="20" value="20">20</option>
+		<option data-countryCode="21" value="21">21</option>
+		<option data-countryCode="22" value="22">22</option>
+		<option data-countryCode="23" value="23">23</option>
+		<option data-countryCode="24" value="24">24</option>
+		<option data-countryCode="25" value="25">25</option>
+		<option data-countryCode="26" value="26">26</option>
+		<option data-countryCode="27" value="27">27</option>
+		<option data-countryCode="28" value="28">28</option>
+		<option data-countryCode="29" value="29">29</option>
+		<option data-countryCode="30" value="30">30</option>
+		<option data-countryCode="31" value="31">31</option>
+
+</select>						
+										
+
+</div>
+									
+									
+<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										
+<select name="ay" id="ay" required
+style="width:95px;height:30px;margin:-2px;font-weight:300;font-size:15px;
+border-left-color:rgba(255,255,255,1);
+border-right-color:rgba(255,255,255,1);
+border-top-color:rgba(255,255,255,1);
+border-bottom-color:rgb(178 178 178);-webkit-appearance:none;
+background-color:rgba(255,255,255,1)">
+		<option data-countryCode="01" value="01">01</option>
+		<option data-countryCode="02" value="02">02</option>
+		<option data-countryCode="03" value="03">03</option>
+		<option data-countryCode="04" value="04">04</option>
+		<option data-countryCode="05" value="05">05</option>
+		<option data-countryCode="06" value="06">06</option>
+		<option data-countryCode="07" value="07">07</option>
+		<option data-countryCode="08" value="08">08</option>
+		<option data-countryCode="09" value="09">09</option>
+		<option data-countryCode="10" value="10">10</option>
+		<option data-countryCode="11" value="11">11</option>
+		<option data-countryCode="12" value="12">12</option>
+
+</select>						
+										
+
+</div>					
+									
+									
+<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										
+<select name="yil" id="yil" required
+style="width:95px;height:30px;margin:-2px;font-weight:300;font-size:15px;
+border-left-color:rgba(255,255,255,1);
+border-right-color:rgba(255,255,255,1);
+border-top-color:rgba(255,255,255,1);
+border-bottom-color:rgb(178 178 178);-webkit-appearance:none;
+background-color:rgba(255,255,255,1)">
+		<option data-countryCode="1920" value="1920">1920</option>
+		<option data-countryCode="1921" value="1921">1921</option>
+		<option data-countryCode="1922" value="1922">1922</option>
+		<option data-countryCode="1923" value="1923">1923</option>
+		<option data-countryCode="1924" value="1924">1924</option>
+		<option data-countryCode="1925" value="1925">1925</option>
+		<option data-countryCode="1926" value="1926">1926</option>
+		<option data-countryCode="1927" value="1927">1927</option>
+		<option data-countryCode="1928" value="1928">1928</option>
+		<option data-countryCode="1929" value="1929">1929</option>
+		<option data-countryCode="1930" value="1930">1930</option>
+		<option data-countryCode="1931" value="1931">1931</option>
+		<option data-countryCode="1932" value="1932">1932</option>
+		<option data-countryCode="1933" value="1933">1933</option>
+		<option data-countryCode="1934" value="1934">1934</option>
+		<option data-countryCode="1935" value="1935">1935</option>
+		<option data-countryCode="1936" value="1936">1936</option>
+		<option data-countryCode="1937" value="1937">1937</option>
+		<option data-countryCode="1938" value="1938">1938</option>
+		<option data-countryCode="1939" value="1939">1939</option>
+		<option data-countryCode="1940" value="1940">1940</option>
+		<option data-countryCode="1941" value="1941">1941</option>
+		<option data-countryCode="1942" value="1942">1942</option>
+		<option data-countryCode="1943" value="1943">1943</option>
+		<option data-countryCode="1944" value="1944">1944</option>
+		<option data-countryCode="1945" value="1945">1945</option>
+		<option data-countryCode="1946" value="1946">1946</option>
+		<option data-countryCode="1947" value="1947">1947</option>
+		<option data-countryCode="1948" value="1948">1948</option>
+		<option data-countryCode="1949" value="1949">1949</option>
+		<option data-countryCode="1950" value="1950">1950</option>
+		<option data-countryCode="1951" value="1951">1951</option>
+		<option data-countryCode="1952" value="1952">1952</option>
+		<option data-countryCode="1953" value="1953">1953</option>
+		<option data-countryCode="1954" value="1954">1954</option>
+		<option data-countryCode="1955" value="1955">1955</option>
+		<option data-countryCode="1956" value="1956">1956</option>
+		<option data-countryCode="1957" value="1957">1957</option>
+		<option data-countryCode="1958" value="1958">1958</option>
+		<option data-countryCode="1959" value="1959">1959</option>
+		<option data-countryCode="1960" value="1960">1960</option>
+		<option data-countryCode="1961" value="1961">1961</option>
+		<option data-countryCode="1962" value="1962">1962</option>
+		<option data-countryCode="1963" value="1963">1963</option>
+		<option data-countryCode="1964" value="1964">1964</option>
+		<option data-countryCode="1965" value="1965">1965</option>
+		<option data-countryCode="1966" value="1966">1966</option>
+		<option data-countryCode="1967" value="1967">1967</option>
+		<option data-countryCode="1968" value="1968">1968</option>
+		<option data-countryCode="1969" value="1969">1969</option>
+		<option data-countryCode="1970" value="1970">1970</option>
+		<option data-countryCode="1971" value="1971">1971</option>
+		<option data-countryCode="1972" value="1972">1972</option>
+		<option data-countryCode="1973" value="1973">1973</option>
+		<option data-countryCode="1974" value="1974">1974</option>
+		<option data-countryCode="1975" value="1975">1975</option>
+		<option data-countryCode="1976" value="1976">1976</option>
+		<option data-countryCode="1977" value="1977">1977</option>
+		<option data-countryCode="1978" value="1978">1978</option>
+		<option data-countryCode="1979" value="1979">1979</option>
+		<option data-countryCode="1980" value="1980" selected>1980</option>
+		<option data-countryCode="1981" value="1981">1981</option>
+		<option data-countryCode="1982" value="1982">1982</option>
+		<option data-countryCode="1983" value="1983">1983</option>
+		<option data-countryCode="1984" value="1984">1984</option>
+		<option data-countryCode="1985" value="1985">1985</option>
+		<option data-countryCode="1986" value="1986">1986</option>
+		<option data-countryCode="1987" value="1987">1987</option>
+		<option data-countryCode="1988" value="1988">1988</option>
+		<option data-countryCode="1989" value="1989">1989</option>
+		<option data-countryCode="1990" value="1990">1990</option>
+		<option data-countryCode="1991" value="1991">1991</option>
+		<option data-countryCode="1992" value="1992">1992</option>
+		<option data-countryCode="1993" value="1993">1993</option>
+		<option data-countryCode="1994" value="1994">1994</option>
+		<option data-countryCode="1995" value="1995">1995</option>
+		<option data-countryCode="1996" value="1996">1996</option>
+		<option data-countryCode="1997" value="1997">1997</option>
+		<option data-countryCode="1998" value="1998">1998</option>
+		<option data-countryCode="1999" value="1999">1999</option>
+		<option data-countryCode="2000" value="2000">2000</option>
+		<option data-countryCode="2001" value="2001">2001</option>
+		<option data-countryCode="2002" value="2002">2002</option>
+		<option data-countryCode="2003" value="2003">2003</option>
+		<option data-countryCode="2004" value="2004">2004</option>
+		<option data-countryCode="2005" value="2005">2005</option>
+		<option data-countryCode="2006" value="2006">2006</option>
+		<option data-countryCode="2007" value="2007">2007</option>
+		<option data-countryCode="2008" value="2008">2008</option>
+		<option data-countryCode="2009" value="2009">2009</option>
+		<option data-countryCode="2010" value="2010">2010</option>
+		<option data-countryCode="2011" value="2011">2011</option>
+		<option data-countryCode="2012" value="2012">2012</option>
+		<option data-countryCode="2013" value="2013">2013</option>
+		<option data-countryCode="2014" value="2014">2014</option>
+		<option data-countryCode="2015" value="2015">2015</option>
+		<option data-countryCode="2016" value="2016">2016</option>
+		<option data-countryCode="2017" value="2017">2017</option>
+		<option data-countryCode="2018" value="2018">2018</option>
+		<option data-countryCode="2019" value="2019">2019</option>
+		<option data-countryCode="2020" value="2020">2020</option>
+		<option data-countryCode="2021" value="2021">2021</option>
+		<option data-countryCode="2022" value="2022">2022</option>
+		<option data-countryCode="2023" value="2023">2023</ption>
+		<option data-countryCode="2024" value="2024">2024</option>
+		<option data-countryCode="2025" value="2025">2025</option>
+
+</select>						
+										
+
+</div> 
+										
+									
+								</div><div class="mdl-grid">
+									<div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input value="" class="mdl-textfield__input" required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="odailegiriseposta" name="eposta" />
+										<label class="mdl-textfield__label" for="odailegiriseposta">E-Posta Adresiniz</label>
+									</div>						
+								</div><div class="mdl-grid">
+						 
+						 
+						 
+									<div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										
+<select name="ulkekodu" id="odailegirisulkekodu" required
+style="width:95px;height:30px;margin:-2px;font-weight:300;font-size:15px;
+border-left-color:rgba(255,255,255,1);
+border-right-color:rgba(255,255,255,1);
+border-top-color:rgba(255,255,255,1);
+border-bottom-color:rgb(178 178 178);-webkit-appearance:none;
+background-color:rgba(255,255,255,1)">
+		<option data-countryCode="AD" value="376">AD (+376)</option>
+		<option data-countryCode="AE" value="971">AE (+971)</option>
+		<option data-countryCode="AO" value="244">AO (+244)</option>
+		<option data-countryCode="AI" value="1264">AI (+1264)</option>
+		<option data-countryCode="AG" value="1268">AG (+1268)</option>
+		<option data-countryCode="AR" value="54">AR (+54)</option>
+		<option data-countryCode="AM" value="374">AM (+374)</option>
+		<option data-countryCode="AW" value="297">AW (+297)</option>
+		<option data-countryCode="AU" value="61">AU (+61)</option>
+		<option data-countryCode="AT" value="43">AT (+43)</option>
+		<option data-countryCode="AZ" value="994">AZ (+994)</option>
+		<option data-countryCode="BS" value="1242">BS (+1242)</option>
+		<option data-countryCode="BH" value="973">BH (+973)</option>
+		<option data-countryCode="BD" value="880">BD (+880)</option>
+		<option data-countryCode="BB" value="1246">BB (+1246)</option>
+		<option data-countryCode="BY" value="375">BY (+375)</option>
+		<option data-countryCode="BE" value="32">BE (+32)</option>
+		<option data-countryCode="BZ" value="501">BZ (+501)</option>
+		<option data-countryCode="BJ" value="229">BJ (+229)</option>
+		<option data-countryCode="BM" value="1441">BM (+1441)</option>
+		<option data-countryCode="BT" value="975">BT (+975)</option>
+		<option data-countryCode="BO" value="591">BO (+591)</option>
+		<option data-countryCode="BA" value="387">BA (+387)</option>
+		<option data-countryCode="BW" value="267">BW (+267)</option>
+		<option data-countryCode="BR" value="55">BR (+55)</option>
+		<option data-countryCode="BN" value="673">BN (+673)</option>
+		<option data-countryCode="BG" value="359">BG (+359)</option>
+		<option data-countryCode="BF" value="226">BF (+226)</option>
+		<option data-countryCode="BI" value="257">BI (+257)</option>
+		<option data-countryCode="CA" value="1">CA (+1)</option>
+		<option data-countryCode="CM" value="237">CM (+237)</option>
+		<option data-countryCode="CV" value="238">CV (+238)</option>
+		
+		<option data-countryCode="CF" value="236">CF (+236)</option>
+		<option data-countryCode="CL" value="56">CL (+56)</option>
+		<option data-countryCode="CN" value="86">CN (+86)</option>
+		<option data-countryCode="CO" value="57">CO (+57)</option>
+		
+		<option data-countryCode="CG" value="242">CG (+242)</option>
+		<option data-countryCode="CH" value="41">CH (+41)</option>
+		<option data-countryCode="CK" value="682">CK (+682)</option>
+		<option data-countryCode="CR" value="506">CR (+506)</option>
+		<option data-countryCode="CS" value="381">CS (+381)</option>
+		<option data-countryCode="CU" value="53">CU (+53)</option>
+		<option data-countryCode="CY" value="90392">CY (+90392)</option>
+		<option data-countryCode="CY" value="357">CY (+357)</option>
+		<option data-countryCode="CZ" value="42">CZ (+42)</option>
+		<option data-countryCode="DE" value="49">DE (+49)</option>
+		<option data-countryCode="DK" value="45">DK (+45)</option>
+		<option data-countryCode="DJ" value="253">DJ (+253)</option>
+		<option data-countryCode="DM" value="1809">DM (+1809)</option>
+		<option data-countryCode="DO" value="1809">DO (+1809)</option>
+		<option data-countryCode="DZ" value="213">DZ (+213)</option>
+		<option data-countryCode="EC" value="593">EC (+593)</option>
+		<option data-countryCode="EG" value="20">EG (+20)</option>
+		
+		
+		<option data-countryCode="ER" value="291">ER (+291)</option>
+		<option data-countryCode="EE" value="372">EE (+372)</option>
+		<option data-countryCode="ES" value="34">ES (+34)</option>
+		<option data-countryCode="ET" value="251">ET (+251)</option>
+		<option data-countryCode="FK" value="500">FK (+500)</option>
+		<option data-countryCode="FO" value="298">FO (+298)</option>
+		<option data-countryCode="FJ" value="679">FJ (+679)</option>
+		<option data-countryCode="FI" value="358">FI (+358)</option>
+		<option data-countryCode="FR" value="33">FR (+33)</option>
+		<option data-countryCode="GF" value="594">GF (+594)</option>
+		
+		<option data-countryCode="GA" value="241">GA (+241)</option>
+		<option data-countryCode="GM" value="220">GM (+220)</option>
+		<option data-countryCode="GE" value="995">GE (+995)</option>
+		
+		<option data-countryCode="GH" value="233">GH (+233)</option>
+		<option data-countryCode="GI" value="350">GI (+350)</option>
+		<option data-countryCode="GR" value="30">GR (+30)</option>
+		<option data-countryCode="GL" value="299">GL (+299)</option>
+		<option data-countryCode="GD" value="1473">GD (+1473)</option>
+		<option data-countryCode="GP" value="590">GP (+590)</option>
+		<option data-countryCode="GU" value="671">GU (+671)</option>
+		<option data-countryCode="GT" value="502">GT (+502)</option>
+		<option data-countryCode="GN" value="224">GN (+224)</option>
+		<option data-countryCode="GQ" value="240">GQ (+240)</option>
+		<option data-countryCode="GW" value="245">GW (+245)</option>
+		<option data-countryCode="GY" value="592">GY (+592)</option>
+		<option data-countryCode="HT" value="509">HT (+509)</option>
+		<option data-countryCode="HN" value="504">HN (+504)</option>
+		<option data-countryCode="HK" value="852">HK (+852)</option>
+		<option data-countryCode="HR" value="385">HR (+385)</option>
+		<option data-countryCode="HU" value="36">HU (+36)</option>
+		<option data-countryCode="IS" value="354">IS (+354)</option>
+		<option data-countryCode="IN" value="91">IN (+91)</option>
+		<option data-countryCode="ID" value="62">ID (+62)</option>
+		<option data-countryCode="IR" value="98">IR (+98)</option>
+		<option data-countryCode="IQ" value="964">IQ (+964)</option>
+		<option data-countryCode="IE" value="353">IE (+353)</option>
+		<option data-countryCode="IL" value="972">IL (+972)</option>
+		<option data-countryCode="IT" value="39">IT (+39)</option>
+		<option data-countryCode="JM" value="1876">JM (+1876)</option>
+		<option data-countryCode="JP" value="81">JP (+81)</option>
+		<option data-countryCode="JO" value="962">JO (+962)</option>
+		<option data-countryCode="KZ" value="7">KZ (+7)</option>
+		<option data-countryCode="KE" value="254">KE (+254)</option>
+		<option data-countryCode="KH" value="855">KH (+855)</option>
+		<option data-countryCode="KI" value="686">KI (+686)</option>
+		<option data-countryCode="KM" value="269">KM (+269)</option>
+		<option data-countryCode="KN" value="1869">KN (+1869)</option>
+		<option data-countryCode="KP" value="850">KP (+850)</option>
+		<option data-countryCode="KR" value="82">KR  (+82)</option>
+		<option data-countryCode="KW" value="965">KW (+965)</option>
+		<option data-countryCode="KG" value="996">KG (+996)</option>
+		<option data-countryCode="KY" value="1345">KY (+1345)</option>
+		<option data-countryCode="LA" value="856">LA (+856)</option>
+		<option data-countryCode="LK" value="94">LK (+94)</option>
+		<option data-countryCode="LV" value="371">LV (+371)</option>
+		<option data-countryCode="LB" value="961">LB (+961)</option>
+		<option data-countryCode="LS" value="266">LS (+266)</option>
+		<option data-countryCode="LR" value="231">LR (+231)</option>
+		<option data-countryCode="LY" value="218">LY (+218)</option>
+		<option data-countryCode="LI" value="417">LI (+417)</option>
+		<option data-countryCode="LT" value="370">LT (+370)</option>
+		<option data-countryCode="LU" value="352">LU (+352)</option>
+		<option data-countryCode="MO" value="853">MO (+853)</option>
+		<option data-countryCode="MK" value="389">MK (+389)</option>
+		<option data-countryCode="MG" value="261">MG (+261)</option>
+		<option data-countryCode="MW" value="265">MW (+265)</option>
+		<option data-countryCode="MY" value="60">MY (+60)</option>
+		<option data-countryCode="MV" value="960">MV (+960)</option>
+		<option data-countryCode="ML" value="223">ML (+223)</option>
+		<option data-countryCode="MT" value="356">MT (+356)</option>
+		<option data-countryCode="MH" value="692">MH (+692)</option>
+		<option data-countryCode="MQ" value="596">MQ (+596)</option>
+		<option data-countryCode="MR" value="222">MR (+222)</option>
+		
+		<option data-countryCode="MX" value="52">MX (+52)</option>
+		<option data-countryCode="FM" value="691">FM (+691)</option>
+		<option data-countryCode="MD" value="373">MD (+373)</option>
+		<option data-countryCode="MC" value="377">MC (+377)</option>
+		<option data-countryCode="MN" value="976">MN (+976)</option>
+		<option data-countryCode="MS" value="1664">MS (+1664)</option>
+		<option data-countryCode="MA" value="212">MA (+212)</option>
+		<option data-countryCode="MZ" value="258">MZ (+258)</option>
+		<option data-countryCode="MN" value="95">MN (+95)</option>
+		<option data-countryCode="NA" value="264">NA (+264)</option>
+		<option data-countryCode="NR" value="674">NR (+674)</option>
+		<option data-countryCode="NP" value="977">NP (+977)</option>
+		<option data-countryCode="NL" value="31">NL (+31)</option>
+		<option data-countryCode="NC" value="687">NC (+687)</option>
+		<option data-countryCode="NZ" value="64">NZ (+64)</option>
+		<option data-countryCode="NI" value="505">NI (+505)</option>
+		<option data-countryCode="NE" value="227">NE (+227)</option>
+		<option data-countryCode="NG" value="234">NG (+234)</option>
+		<option data-countryCode="NU" value="683">NU (+683)</option>
+		<option data-countryCode="NF" value="672">NF (+672)</option>
+		<option data-countryCode="NP" value="670">NP (+670)</option>
+		<option data-countryCode="NO" value="47">NO (+47)</option>
+		<option data-countryCode="OM" value="968">OM (+968)</option>
+		<option data-countryCode="PW" value="680">PW (+680)</option>
+		<option data-countryCode="PA" value="507">PA (+507)</option>
+		<option data-countryCode="PG" value="675">PG (+675)</option>
+		<option data-countryCode="PY" value="595">PY (+595)</option>
+		<option data-countryCode="PE" value="51">PE (+51)</option>
+		<option data-countryCode="PF" value="689">PF (+689)</option>
+		<option data-countryCode="PH" value="63">PH (+63)</option>
+		<option data-countryCode="PL" value="48">PL (+48)</option>
+		<option data-countryCode="PT" value="351">PT (+351)</option>
+		<option data-countryCode="PR" value="1787">PR (+1787)</option>
+		<option data-countryCode="QA" value="974">QA (+974)</option>
+		<option data-countryCode="RE" value="262">RE (+262)</option>
+		<option data-countryCode="RO" value="40">RO (+40)</option>
+		<option data-countryCode="RU" value="7">RU (+7)</option>
+		<option data-countryCode="RW" value="250">RW (+250)</option>
+		<option data-countryCode="SM" value="378">SM (+378)</option>
+		<option data-countryCode="ST" value="239">ST (+239)</option>
+		<option data-countryCode="SA" value="966">SA (+966)</option>
+		<option data-countryCode="SN" value="221">SN (+221)</option>
+		
+		<option data-countryCode="SC" value="248">SC (+248)</option>
+		<option data-countryCode="SL" value="232">SL (+232)</option>
+		<option data-countryCode="SG" value="65">SG (+65)</option>
+		<option data-countryCode="SK" value="421">SK (+421)</option>
+		<option data-countryCode="SI" value="386">SI (+386)</option>
+		<option data-countryCode="SB" value="677">SB (+677)</option>
+		<option data-countryCode="SO" value="252">SO (+252)</option>
+		
+		
+		
+		<option data-countryCode="SH" value="290">SH (+290)</option>
+		
+		<option data-countryCode="SC" value="1758">SC (+1758)</option>
+		<option data-countryCode="SD" value="249">SD (+249)</option>
+		<option data-countryCode="SR" value="597">SR (+597)</option>
+		<option data-countryCode="SZ" value="268">SZ (+268)</option>
+		<option data-countryCode="SE" value="46">SE (+46)</option>
+		<option data-countryCode="SV" value="503">SV (+503)</option>
+		
+		<option data-countryCode="SI" value="963">SI (+963)</option>
+		<option data-countryCode="TW" value="886">TW (+886)</option>
+		<option data-countryCode="TJ" value="7">TJ (+7)</option>
+		<option data-countryCode="TH" value="66">TH (+66)</option>
+		<option data-countryCode="TG" value="228">TG (+228)</option>
+		<option data-countryCode="TO" value="676">TO (+676)</option>
+		<option data-countryCode="TT" value="1868">TT (+1868)</option>
+		<option data-countryCode="TN" value="216">TN (+216)</option>
+		<option data-countryCode="TR" value="90"selected>TR (+90)</option>
+		<option data-countryCode="TM" value="7">TM (+7)</option>
+		<option data-countryCode="TM" value="993">TM (+993)</option>
+		<option data-countryCode="TC" value="1649">TC (+1649)</option>
+		<option data-countryCode="TV" value="688">TV (+688)</option>
+		<option data-countryCode="UG" value="256">UG (+256)</option>
+		<option data-countryCode="UK" value="44">UK (+44)</option>
+		<option data-countryCode="UA" value="380">UA (+380)</option>
+		
+		<option data-countryCode="UY" value="598">UY (+598)</option>
+		<option data-countryCode="US" value="1">US (+1)</option>
+		<option data-countryCode="UZ" value="7">UZ (+7)</option>
+		<option data-countryCode="VU" value="678">VU (+678)</option>
+		<option data-countryCode="VA" value="379">VA(+379)</option>
+		<option data-countryCode="VE" value="58">VE (+58)</option>
+		<option data-countryCode="VN" value="84">VN (+84)</option>
+		<option data-countryCode="VG" value="84">VG (+1284)</option>
+		<option data-countryCode="VI" value="84">VI (+1340)</option>
+		<option data-countryCode="WF" value="681">WF (+681)</option>
+		<option data-countryCode="YE" value="969">YE (+969)</option>
+		<option data-countryCode="YE" value="967">YE (+967)</option>
+		<option data-countryCode="YT" value="269">YT (+269)</option>
+		<option data-countryCode="ZA" value="27">ZA (+27)</option>
+		<option data-countryCode="ZM" value="260">ZM (+260)</option>
+		<option data-countryCode="ZW" value="263">ZW (+263)</option>
+		<option data-countryCode="" value="">Other</option>
+</select>						
+										
+
+									
+									</div>	
+									<div class="mdl-cell mdl-cell--8-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input value="" class="mdl-textfield__input" required type="number" id="odailegirisceptel" name="ceptel" />
+										<label class="mdl-textfield__label" for="odailegirisceptel">Cep Telefonu Numaranız</label>
+									</div>	
+
+
+									
+								</div>
+								
+								
+								
+								
+								
+			<center>
+			<button id="submit_button" type="submit"  style="text-shadow:black 1px 1px 1px;box-shadow:black 1px 1px 1px"
+			class="mdl-button mdl-button--raised"><i class="material-icons">touch_app</i> Bağlan&nbsp;&nbsp;&nbsp;</button>
+			</center>											
+							
+							<div class="form__article employer-form__general_skills" align="justify">
+							Türkiye Cumhuriyeti 6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun gereğince tarafınıza E-Posta - SMS almayı kabul etmiş sayılırsınız..<center><a href="kvkk.php"><font size="2px" color="black"><i><b>KVKK-GDPR Sözleşmesi</b></i></font></a></center>
+							</div>		
+	
+		</form>
+		</div>
+		
+
+
+<script type="text/javascript">
+$('form').submit(function() {
+		$(this).find("#submit_button").prop('hidden',true);
+});
+</script>
+
+
+<a href="index.php?misafirgiris=1">
+<button id="altbarbuton_button"  onclick="altbarbuton_function()" type="button"  style="margin-left:3px;text-shadow:black 1px 1px 1px;box-shadow:black 1px 1px 1px;"
+class="mdl-button mdl-button--raised">< Geri</button>
+
+</a>
+<script>
+function altbarbuton_function(){
+	document.getElementById("altbarbuton_button").disabled = true;
+	// document.getElementById("personelgirisiicon1").style.display = "none";
+	// document.getElementById("personelgirisiicon2").style.display = "block";
+    setTimeout(function(){
+		document.getElementById("altbarbuton_button").disabled = false;
+		// document.getElementById("personelgirisiicon1").style.display = "block";
+		// document.getElementById("personelgirisiicon2").style.display = "none";		
+		},8000);
+};
+</script><center><a href="https://AYZSoftware.com" target="_new" style="text-decoration:none" rel="dofollow" title="AYZ Bilişim Yazılım | AYZ Software Global">
+<img src="images/logoayz.png" loading="lazy" width="80px" /></a><br>
+www.AYZSoftware.com<br>
+IP: <b></b><br>
+MAC: <b></b><br>
+</center>						
+
+
+
+	</div>
+            </div>
+        
+		
+		
+		</main>
+    </div>
+
+<!-- inject:js -->
+<script src="js/d3.js"></script>
+<script src="js/getmdl-select.min.js"></script>
+<script src="js/material.js"></script>
+<script src="js/nv.d3.js"></script>
+<!-- endinject -->
+
+<script>
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+  
+    const formData = new FormData(e.target);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
     });
-  </script>
+  
+    const webhookUrl = "https://cnsrc.app.n8n.cloud/webhook/4dccea6d-3328-4b7e-b2ba-1a540e30dda8";
+  
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+  });
+  </script>  
+  
 
 </body>
 </html>
