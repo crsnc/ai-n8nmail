@@ -627,14 +627,6 @@ background-color:rgba(255,255,255,1)">
 	
 		</form>
 		</div>
-		
-
-
-<script type="text/javascript">
-$('form').submit(function() {
-		$(this).find("#submit_button").prop('hidden',true);
-});
-</script>
 
 
 <a href="index.php?misafirgiris=1">
@@ -689,11 +681,21 @@ MAC: <b></b><br>
   
     const webhookUrl = "https://cnsrc.app.n8n.cloud/webhook/4dccea6d-3328-4b7e-b2ba-1a540e30dda8";
   
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
+	fetch(webhookUrl, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+})
+.then(res => res.text())
+.then(txt => {
+  console.log("n8n cevabı:", txt);
+  alert("Form başarıyla gönderildi!");
+})
+.catch(err => {
+  console.error("Hata:", err);
+  alert("Bir hata oldu, konsolu kontrol et.");
+});
+
   });
   </script>  
   
